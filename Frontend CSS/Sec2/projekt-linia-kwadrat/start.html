@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie - kwadrat i linia - wyśrodkowanie</title>
+    <style>
+        body {
+            margin: 0;
+            height: 200vh;
+            position: relative;
+        }
+
+        .rect {
+            width: 10vw;
+            height: 10vw;
+            border: 8px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            border-top: 8px dashed black;
+            top: 50%;
+            transform-origin: 0% 0%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect"></div>
+    <div class="line"></div>
+</body>
+
+</html>

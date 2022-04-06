@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        div {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            margin: 5px;
+            float: left;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border: 2px solid black;
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .circle {
+            background-color: white;
+            border-radius: 50%;
+            color: black;
+            border: 2px solid black;
+        }
+
+        .circle:hover{
+            background-color: wheat;
+        }
+
+        div:hover{
+            background-color: rgb(77, 77, 77);
+        }
+
+        button{
+            font-size: 30px;
+            padding: 10px 20px;
+            border: 4px dashed black;
+            font-family: sans-serif;
+            transition: .3s;
+        }
+
+        button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Kliknij!</button>
+    <script>
+        const btn = document.querySelector('button');
+        let number = 1;
+
+        function addElement(){
+            console.log("działa!");
+            let divBlock = document.createElement('div');
+
+            divBlock.textContent = number;
+
+            if(number%5==0 && number%10!=0){
+                divBlock.classList.add('circle');
+            }
+            if(number%5==0 && number%10==0){
+                divBlock.classList.add('circle');
+                divBlock.style.border = "2px solid royalblue";
+                divBlock.style.color = "royalblue";
+            }
+
+            document.body.appendChild(divBlock);
+            number++;
+        }
+
+        btn.addEventListener('click', addElement);
+    </script>
+</body>

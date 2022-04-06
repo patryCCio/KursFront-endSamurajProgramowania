@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Slider/Banner</title>
+ <link href="https://fonts.googleapis.com/css?family=Oswald&amp;subset=latin-ext" rel="stylesheet">
+
+ <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+
+     html{
+         font-family: oswald;
+         font-size: 10px;
+     }
+
+     .team{
+         width: 100%;
+         height: 100vh;
+         overflow: hidden;
+         background-color: #ddd;
+         position: relative;
+     }
+
+     .team img.color{
+         position: absolute;
+         bottom: 0;
+         right: -7%;
+         height: 30%;
+         z-index: 1;
+         animation: color 4s linear infinite;
+     }
+     .team img.gray{
+         position: absolute;
+         bottom: 0;
+         left: -90%;
+         height: 110%;
+         opacity: 0.2;
+         animation: grayColor 4s linear infinite;
+     }
+
+     .team .member{
+         position: absolute;
+         top: 10%;
+         left: 0;
+         width: 100%;
+         text-align: center;
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         animation: text 4s linear infinite;
+     }
+
+     .team h1{
+        font-size: 4rem;
+     }
+
+     .team h2{
+         font-size: 2.2rem;
+     }
+
+     @media (orientation: landscape){
+        .team img.color{
+         bottom: 0;
+         right: 5%;
+         height: 56%;
+        }
+        .team img.gray{
+         bottom: -10%;
+         left: -15%;
+         height: 130%;
+        }
+
+        .team .member{
+         top: 10%;
+         left: 40%;
+         width: 60%;
+        }
+
+     }
+
+     @media (orientation: landscape) and (min-width: 1025px){
+        .team h1{
+        font-size: 10rem;
+        }
+
+        .team h2{
+        font-size: 6.5rem;
+        }
+     }
+     
+     @keyframes color{
+         0%{
+            transform: translateX(0);
+            opacity: 0;
+         }
+
+         3%{
+             opacity: 0;
+         }
+
+         9%{
+             opacity: 1;
+         }
+
+         82%{
+             opacity: 1;
+         }
+
+         88%{
+             opacity: 0;
+         }
+         100%{
+            transform: translateX(-5%);
+            opacity: 0;
+         }
+     }
+
+     @keyframes grayColor{
+        0%{
+            transform: translateX(0);
+            opacity: 0;
+         }
+
+         3%{
+             opacity: 0;
+         }
+
+         9%{
+             opacity: .2;
+         }
+
+         82%{
+             opacity: .2;
+         }
+
+         88%{
+             opacity: 0;
+         }
+         100%{
+            transform: translateX(5%) scale(1.1);
+            opacity: 0;
+         }
+     }
+
+     @keyframes text{
+        0%{
+            transform: scale(1);
+            opacity: 0;
+         }
+
+         3%{
+             opacity: 0;
+         }
+
+         9%{
+             opacity: 1;
+         }
+
+         82%{
+             opacity: 1;
+         }
+
+         88%{
+             opacity: 0;
+         }
+         100%{
+            transform: scale(1.1);
+            opacity: 0;
+         }
+     }
+ </style>
+</head>
+<body>
+    <section class="team">
+        <img src="img/s1.png" class="color">
+        <img src="img/s1a.png" class="gray">
+        <div class="member">
+            <h1>Anna Baugart</h1>
+            <h2>Programistka JS</h2>
+        </div>
+    </section>
+
+    <script>
+
+        const imgColorHTML = document.querySelector('.color');
+        const imgGrayHTML = document.querySelector('.gray');
+        const h1HTML = document.querySelector('.member h1');
+        const h2HTML = document.querySelector('.member h2');
+
+        let activeElement = 1;
+
+        const howImages = 3;
+        const names = ['Anna Baugart', 'Marek Feliksiak', 'Arek Pawłowicz'];
+        const professions = ['Programistka JS', 'UX i UI designer', 'Front-End Developer'];
+
+        function changeElement(){
+            activeElement++;
+            imgColorHTML.src = `img/s${activeElement}.png`;
+            imgGrayHTML.src = `img/s${activeElement}a.png`;
+            h1HTML.textContent = names[activeElement-1];
+            h2HTML.textContent = professions[activeElement-1];
+
+            if(activeElement == howImages)activeElement = 0;
+        }
+
+        setInterval(changeElement, 4000);
+    </script>
+</body>
+
+</html>
