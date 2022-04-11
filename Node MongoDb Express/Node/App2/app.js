@@ -1,6 +1,8 @@
 const counter = require('./counter');
-console.log("Jestem w module app!");
+
+// for(let x=0; x<10; x++){
+//     counter();
+// }
 
 counter.add(3);
 counter.add(30);
-counter.add(3);

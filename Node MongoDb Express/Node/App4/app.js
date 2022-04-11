@@ -1,3 +1,6 @@
-const fetch = require('node-fetch');
+const colors = require('colors');
+const mymodule = require('./mymodule');
 
-console.log(process.argv);
+// console.log(colors);
+
+mymodule.readModuleName();

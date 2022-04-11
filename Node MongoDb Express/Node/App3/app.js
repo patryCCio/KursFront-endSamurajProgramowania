@@ -1,6 +1,6 @@
 const users = require('./users');
-const mymodule = require('./mymodule');
-// users.showUsers();
-// users.showUserObj(3);
 
-mymodule.readModuleName();
+users.showUsers();
+users.showUserObj(2);
+
+console.log(users.userListLength);
